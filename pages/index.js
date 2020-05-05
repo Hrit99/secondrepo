@@ -20,16 +20,15 @@ class Index extends React.Component {
 
         return { page, stories };
     }
-    componentDidMount = () => {
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker
-            .register("/sw.js")
-             .catch(err => console.error("Service worker registration failed", err));
-        }
-         else {
-            console.log("Service worker not supported");
-        }
-    }
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
     render() {
         const { stories, page } = this.props;
 
