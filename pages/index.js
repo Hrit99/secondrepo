@@ -20,6 +20,7 @@ class Index extends React.Component {
 
         return { page, stories };
     }
+        componentDidMount = () => {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('/sw.js').then(function(registration) {
@@ -28,6 +29,7 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+}
 }
     render() {
         const { stories, page } = this.props;
