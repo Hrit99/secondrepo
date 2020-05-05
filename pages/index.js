@@ -23,7 +23,7 @@ class Index extends React.Component {
         componentDidMount = () => {
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('../offline/serviceWorker.js').then(function(registration) {
+    navigator.serviceWorker.register('/../offline/serviceWorker.js').then(function(registration) {
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
     }, function(err) {
       console.log('ServiceWorker registration failed: ', err);
