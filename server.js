@@ -13,6 +13,7 @@ app.prepare().then(() => {
     const { pathname } = parsedUrl;
 
     if (pathname === '/sw.js') {
+      app.use('/', routes)
       res.setHeader('content-type', 'text/javascript');
       createReadStream('./offline/serviceWorker.js').pipe(res);
     } else {
